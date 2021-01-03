@@ -1,0 +1,7 @@
+{
+  "name": "expence-manager",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

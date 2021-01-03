@@ -1,0 +1,14 @@
+{
+  "appId": "expenceManager",
+  "appName": "expence-manager",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "build",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "cordova": {},
+  "linuxAndroidStudioPath": ""
+}
