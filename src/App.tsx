@@ -4,6 +4,7 @@ import { IonApp, IonRouterOutlet } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import List from "./pages/expences/List";
 import Add from "./pages/expences/Add";
+import Register from "./pages/auth/Register";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -23,6 +24,7 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import Login from "./pages/auth/Login";
 
 const App: React.FC = () => (
   <IonApp>
@@ -30,7 +32,9 @@ const App: React.FC = () => (
       <IonRouterOutlet>
         <Route path="/expences/list" component={List} exact={true} />
         <Route path="/expences/add" component={Add} />
-        <Route exact path="/" render={() => <Redirect to="/expences/list" />} />
+        <Route path="/register" component={Register} />
+        <Route path="/login" component={Login} />
+        <Route exact path="/" render={() => <Redirect to="/login" />} />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

@@ -1,19 +1,31 @@
-import Api from "./storage";
+import Api from "./api";
 import Expence from "../model/Expence";
 
 class ExpenceService {
+  private _api: Api;
+
+  constructor() {
+    this._api = new Api();
+  }
+
   async addExpence(expence: Expence) {
-    const api = new Api();
-    const expences = await this.getExpence();
-    expences.push(expence);
-    api.addExpence(expences);
+    this._api.post("expences", expence);
     return true;
   }
 
   async getExpence() {
-    const api = new Api();
-    const { value } = await api.getExpences();
-    return value ? JSON.parse(value) : [];
+    const response = await this._api.get("expences");
+    if (response) {
+      return response.data.data;
+    }
+    return [];
+  }
+
+  async deleteExpence(expence: Expence) {
+    if (!expence.id) {
+      return;
+    }
+    return await this._api.delete(`expences/${expence.id}`);
   }
 }
 

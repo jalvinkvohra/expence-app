@@ -30,7 +30,8 @@ const Add: React.FC<ContainerProps> = (props) => {
     const expenceSerivce = new ExpenceService();
 
     const response = await expenceSerivce.addExpence({
-      date: new Date(date),
+      id: undefined,
+      spent_at: new Date(date),
       reason,
       amount,
     });

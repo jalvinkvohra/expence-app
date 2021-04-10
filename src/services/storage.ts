@@ -2,7 +2,7 @@ import { Plugins } from "@capacitor/core";
 import Expence from "../model/Expence";
 const { Storage } = Plugins;
 
-class Api {
+class StorageService {
   async addExpence(expences: Expence[]) {
     return Storage.set({ key: "expences", value: JSON.stringify(expences) });
   }
@@ -12,4 +12,4 @@ class Api {
   }
 }
 
-export default Api;
+export default StorageService;
